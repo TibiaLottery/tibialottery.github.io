@@ -17,8 +17,5 @@ node_modules/
 # Prepros is a compilation and file server tool
 prepros.cfg
 
-# Build directory
-build/
-
 #npm debug
 npm-debug.log
