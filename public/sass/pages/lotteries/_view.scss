@@ -1,0 +1,54 @@
+.lottery-view-controller {
+	.information-row {
+		padding: 10px 0;
+		font-size: 1.1em;
+
+		.title {
+			display: inline-block;
+			font-weight: bold;
+			width: 120px;
+			text-align: right;
+			color: rgba(0, 0, 0, 0.6);
+		}
+
+		.information {
+			margin-left: 10px;
+		}
+
+		&:nth-child(odd) {
+			background-color: $table-odd-background-color;
+		}
+
+		&:nth-child(even) {
+			background-color: white;
+		}
+	}
+
+	.countdown-timer {
+		text-align: center;
+	}
+
+	.lottery-results table {
+		width: 100%;
+
+		th {
+			font-weight: bold;
+			border-bottom: 1px solid black;
+			padding: 10px 5px;
+		}
+
+		td {
+			padding: 10px 5px;
+		}
+
+		tbody tr:nth-child(odd) {
+			background-color: $table-odd-background-color;
+		}
+
+		.modify {
+			i {
+				padding: 0 20px;
+			}
+		}
+	}
+}

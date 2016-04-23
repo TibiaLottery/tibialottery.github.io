@@ -1,0 +1,21 @@
+/* Reset */
+@import 'reset';
+
+/* Globals */
+@import 'globals/globals';
+
+/*Template Files*/
+/* This is the template layout CSS from the bootstrap example */
+@import 'template_layout';
+/* Custom overrides, alterations to the original template */
+@import 'custom_style';
+/* Animations */
+@import 'global_animations';
+
+/* Pages */
+@import 'pages/index';
+@import 'pages/account';
+@import 'pages/lotteries/view';
+
+/* Directives */
+@import '../app/directives/tl-countdown/tl_countdown';

@@ -1,0 +1,35 @@
+<div layout="column" data-ng-cloak>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="panel-title md-title">Register for TibiaLottery</div>
+		</div>
+		<div class="panel-body">
+			<form name="registerForm">
+				<md-content>
+					<md-input-container>
+						<label>Login ID</label>
+						<input data-ng-model="user.login" type="text" ng-minlength="5" required>
+					</md-input-container>
+					<md-input-container>
+						<label>Username</label>
+						<input data-ng-model="user.name" type="text" ng-minlength="5" required>
+					</md-input-container>
+					<md-input-container>
+						<label>Email</label>
+						<input data-ng-model="user.email" type="email" required>
+					</md-input-container>
+					<div ng-show="registerCtrl.submitting">
+						<md-progress-linear md-mode="indeterminate"></md-progress-linear>
+						<br />
+					</div>
+					<div ng-hide="registerCtrl.error.length === 0">
+						<div class="md-warn-text" data-ng-bind-html="trustAsHtml(registerCtrl.error)"></div>
+						<br />
+					</div>
+				</md-content>
+				<md-button class="md-raised" ng-disabled="registerCtrl.submitting" ng-click="registerCtrl.register()">Register</md-button>
+				<md-button class="md-raised md-warn" ng-click="registerCtrl.reset()">Clear</md-button>
+			</form>
+		</div>
+	</div>
+</div>

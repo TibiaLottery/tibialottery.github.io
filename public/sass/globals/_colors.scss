@@ -1,0 +1,20 @@
+/* Blacks */
+$header-black: #594C22;
+$sidebar-black: #72653D;
+$sidebar-active-black: rgba(black, 0.2);
+
+/* Whites/Greys */
+$white: hsl(0, 0%, 90%);
+$sidebar-active-white: hsl(0, 0%, 95%);
+$sidebar-inactive-white: hsl(0, 5%, 85%);
+$sidebar-inactive-hover-white: rgba(black, 0.1);
+$sidebar-active-border: rgba(black, 0.25);
+$navbar-hover-grey: rgba(black, 0);
+
+/* Panels and content areas */
+$panel-title-background-color: #786A41;
+$panel-title-font-color: white;
+$panel-border-color: rgba(black, 0.3);
+
+/* Tables */
+$table-odd-background-color: rgba($panel-title-background-color, 0.1);

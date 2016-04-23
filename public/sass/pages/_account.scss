@@ -1,0 +1,32 @@
+#lottery-table {
+	width: 100%;
+
+	th {
+		font-weight: bold;
+		border-bottom: 1px solid black;
+		padding: 10px 5px;
+	}
+
+	td {
+		padding: 10px 5px;
+	}
+
+	tbody tr:nth-child(odd){
+		background-color: $table-odd-background-color;
+	}
+
+	.modify {
+		i {
+			padding: 0 20px;
+		}
+	}
+}
+
+.panel-heading .panel-title-secondary {
+	float: right;
+}
+
+.false-email {
+	color: transparent;
+	text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}

@@ -1,0 +1,11 @@
+.fade-in {
+	transition: opacity ease 0.45s;
+
+	&.ng-enter {
+		opacity: 0;
+
+		&.ng-enter-active {
+			opacity: 1;
+		}
+	}
+}

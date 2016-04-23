@@ -1,0 +1,198 @@
+body {
+	background-image: url('http://tibialottery.com/images/background_piece.png');
+}
+
+.main {
+	background-image: url('http://tibialottery.com/images/background_piece.png');
+}
+
+/* Sidebar */
+.sidebar {
+	background: $sidebar-black;
+	top: 50px;
+	color: $sidebar-inactive-white;
+	border: none;
+	box-shadow: 0 2px 12px rgba(black, 0.3);
+
+	a {
+		color: $sidebar-inactive-white;
+	}
+
+	li {
+		a {
+			padding: 15px 20px;
+		}
+	}
+
+	img {
+		position: absolute;
+		left: 0;
+		right: 0;
+		margin: auto;
+	}
+}
+
+.nav-sidebar li > a {
+	transition: border 0.3s;
+}
+
+.nav-sidebar .active a,
+.nav-sidebar .active a:hover,
+.nav-sidebar .active a:focus {
+	background: $sidebar-active-black;
+	color: $sidebar-active-white;
+	border-left: 10px solid $sidebar-active-border;
+	box-shadow: 0 2px 12px rgba(black, 0.3);
+}
+
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+	background: $sidebar-active-black;
+	color: $sidebar-active-white;
+}
+
+.nav >li > a:focus, .nav > li > a:hover {
+	background: $sidebar-inactive-hover-white;
+	color: $sidebar-inactive-white;
+}
+
+.sidebar-icon {
+	font-size: 25px;
+	float: right;
+	margin-top: -4px;
+	text-align: center;
+	width: 50px;
+	height: 100%;
+	vertical-align: middle;
+}
+
+/* Navbar */
+.navbar {
+	background: $header-black;
+	box-shadow: 2px 0 12px rgba(black, 0.3);
+}
+
+.navbar-brand {
+	color: $white;
+	img {
+		display: inline;
+	}
+	a {
+		color: $white;
+		display: inline;
+	}
+}
+
+.navbar-brand-img {
+	display: inline;
+	padding-right: 5px;
+}
+
+.navbar-inverse .navbar-nav>li>a{
+	color: $white;
+}
+
+.fa {
+	padding-right: 5px;
+}
+
+
+.navbar-brand a {
+	height: 50px;
+	margin-top: -20px;
+	padding: 15px 15px 0 15px;
+	display: inline-block;
+	vertical-align: middle;
+
+	&:hover {
+		text-decoration: none;
+		background: $navbar-hover-grey;
+	}
+}
+
+.navbar-right a{
+	height: 50px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover {
+	background: $navbar-hover-grey;
+}
+
+.primary {
+	font-weight: bold;
+}
+
+.secondary {
+	font-style: italic;
+	float: right;
+}
+
+i {
+	&.clickable:hover {
+		color: #3333FF;
+	}
+}
+
+.clickable {
+	cursor: pointer;
+	outline: none;
+}
+
+md-toast {
+	top: 60px;
+	z-index: 10000;
+}
+
+md-toast.md-top {
+	top: 55px;
+}
+
+a.md-raised.md-primary.md-button.md-ink-ripple {
+	margin-bottom: -14px;
+}
+
+.md-input {
+	border-color: black;
+}
+
+.md-warn-text {
+	color: rgb(244,67,54);
+}
+
+.md-valid-text {
+	color: #00A300;
+}
+
+.panel-default > .panel-heading {
+	background-color: $panel-title-background-color;
+	color: $panel-title-font-color;
+	border-color: $panel-title-background-color;
+}
+
+.panel-default {
+	border-color: $panel-border-color;
+	box-shadow: 2px 2px 12px rgba(black, 0.3);
+}
+
+#__bs_notify__ {
+	display: none !important;
+}
+
+.panel-title-secondary input {
+	margin-top: -23px;
+	position: absolute;
+	right: 20px;
+	padding: 6px 4px 3px 4px;
+	background-color: rgba(white, 0.15);
+	border: 1px solid rgba(black, 0.2);
+	outline: none;
+	border-radius: 5px;
+	transition: all ease 0.25s;
+
+	&:focus {
+		background-color: white;
+		color: black;
+	}
+}

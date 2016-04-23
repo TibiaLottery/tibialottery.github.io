@@ -1,0 +1,121 @@
+<div class="lottery-view-controller">
+	<div class="fade-in" ng-if="lotteryViewCtrl.lottery !== null || lotteryViewCtrl.loading" ng-cloak>
+		<div class="col-sm-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Lottery Information</h3>
+				</div>
+				<div class="panel-body fade-in" ng-if="lotteryViewCtrl.loading === false">
+					<div class="information-row">
+						<span class="title">Creator:</span>
+						<span class="information">{{lotteryViewCtrl.lottery.Creator}}</span>
+					</div>
+					<!--<div class="information-row">-->
+						<!--<span class="title">IP Address:</span>-->
+						<!--<span class="information">179.156.168.56</span>-->
+					<!--</div>-->
+					<div class="information-row">
+						<span class="title">Created:</span>
+						<span class="information">
+							<tl-time-ago date="lotteryViewCtrl.lottery['Creation Date']"></tl-time-ago>
+							<md-tooltip class="md-title" md-direction="right" md-autohide="true">
+								{{lotteryViewCtrl.lottery['Creation Date'] | date:"MMMM d, y 'at' h:mm a"}}
+							</md-tooltip>
+						</span>
+					</div>
+					<div class="information-row" ng-if="lotteryViewCtrl.lottery['Related Thread ID']">
+						<span class="title">Thread:</span>
+						<span class="information"><a href="http://forum.tibia.com/forum/?action=thread&threadid={{lotteryViewCtrl.lottery['Related Thread ID']}}" target="_blank">{{lotteryViewCtrl.lottery['Related Thread ID']}}</a></span>
+					</div>
+					<div class="information-row">
+						<span class="title">Tickets:</span>
+						<span class="information">{{lotteryViewCtrl.lottery['Number of Tickets']}}</span>
+					</div>
+					<div class="information-row" ng-if="lotteryViewCtrl.lottery.Server">
+						<span class="title">Server:</span>
+						<span class="information">{{lotteryViewCtrl.lottery.Server}}</span>
+					</div>
+					<div class="information-row" ng-if="lotteryViewCtrl.lottery['Already Drawn'] === 0">
+						<span class="title">Draws:</span>
+						<span class="information">
+							<tl-time-ago date="lotteryViewCtrl.lottery['Draw Time']" reverse="true"></tl-time-ago>
+							<md-tooltip class="md-title" md-direction="right" md-autohide="true">
+								{{lotteryViewCtrl.lottery['Draw Time'] | date:"MMMM d, y 'at' h:mm a"}}
+							</md-tooltip>
+						</span>
+					</div>
+					<div class="information-row" ng-if="lotteryViewCtrl.lottery['Already Drawn'] === 1">
+						<span class="title">Drawn:</span>
+						<span class="information">
+							<tl-time-ago date="lotteryViewCtrl.lottery['Draw Time']"></tl-time-ago>
+							<md-tooltip class="md-title" md-direction="right" md-autohide="true">
+								{{lotteryViewCtrl.lottery['Draw Time'] | date:"MMMM d, y 'at' h:mm a"}}
+							</md-tooltip>
+						</span>
+					</div>
+				</div>
+				<div class="panel-body" ng-if="lotteryViewCtrl.loading">
+					<md-progress-linear md-mode="indeterminate"></md-progress-linear>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-12 fade-in" ng-if="lotteryViewCtrl.loading === false && lotteryViewCtrl.lottery['Already Drawn'] === 0">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Countdown</h3>
+				</div>
+				<div class="panel-body countdown-timer">
+					<tl-countdown date="lotteryViewCtrl.lottery['Draw Time']"></tl-countdown>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-12 fade-in lottery-results" ng-if="lotteryViewCtrl.loading === false && lotteryViewCtrl.lottery['Already Drawn'] === 1">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Results</h3>
+					<span class="panel-title-secondary panel-title"><input type="text" placeholder="Search" class="search" ng-model="lotteryViewCtrl.lotteryFilter" /></span>
+				</div>
+				<div class="panel-body">
+					<table>
+						<colgroup>
+							<col span="1" style="width: 5%;">
+							<col span="1" style="width: 5%;">
+							<col span="1" style="width: 90%;">
+						</colgroup>
+						<thead>
+						<tr>
+							<th>Rank</th>
+							<th>Ticket</th>
+							<th>{{lotteryViewCtrl.listAssigned ? 'Player' : ''}}</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr ng-repeat="result in lotteryViewCtrl.lotteryResultList | filter:lotteryViewCtrl.lotteryFilter track by result.rank">
+							<td>{{result.rank}}</td>
+							<td>{{result.ticket}}</td>
+							<td>{{result.player}}</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="fade-in" ng-if="lotteryViewCtrl.lottery === null && !lotteryViewCtrl.loading" ng-cloak>
+		<div class="col-sm-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Lottery not found!</h3>
+				</div>
+				<div class="panel-body">
+					<p>Oh no, we couldn't find the requested lottery!</p>
+					<br />
+					<p><a ui-sref="lottery">Back to the lottery section?</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
