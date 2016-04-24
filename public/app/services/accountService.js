@@ -28,7 +28,7 @@
 
     function comparePassword(pw, callback) {
       $http({
-        url: '/api/v1/account/matchPassword',
+        url: UrlService.account.POST.passwordCompare,
         method: 'POST',
         data: {password: pw}
       }).then(function (response) {
@@ -38,7 +38,7 @@
 
     function changePassword(passwordObject, callback) {
       $http({
-        url: '/api/v1/account/changePassword',
+        url: UrlService.account.POST.changePassword,
         method: 'POST',
         data: {password: passwordObject}
       }).then(callback);

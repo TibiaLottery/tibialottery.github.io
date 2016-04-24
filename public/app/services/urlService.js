@@ -10,7 +10,9 @@
             },
             POST: {
                 login: 'https://xmxuxh5tdg.execute-api.us-west-2.amazonaws.com/dev/account-login',
-                logout: 'https://xmxuxh5tdg.execute-api.us-west-2.amazonaws.com/dev/account-logout'
+                logout: 'https://xmxuxh5tdg.execute-api.us-west-2.amazonaws.com/dev/account-logout',
+                changePassword: 'https://xmxuxh5tdg.execute-api.us-west-2.amazonaws.com/dev/account-password-change',
+                passwordCompare: 'https://xmxuxh5tdg.execute-api.us-west-2.amazonaws.com/dev/account-password-compare'
             }
         };
 
