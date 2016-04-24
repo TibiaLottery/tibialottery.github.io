@@ -118,23 +118,13 @@
 
     app.run(['$rootScope', '$state', '$http', '$cookies', function ($rootScope, $state, $http, $cookies) {
         $rootScope.$state = $state;
-    }]);
-
-    angular.module('tibialotteryApp').factory('httpRequestInterceptor', ['$cookies', function($cookies) {
-        return {
-            request: function (config) {
-                var user = $cookies.getObject('user');
-                console.log("USER:", user);
-                if (user && user.authToken) {
-                    config.headers = {'auth-token': user.authToken};
-                }
-
-                return config;
+        $rootScope.$on('$stateChangeSuccess', function() {
+            var user = $cookies.getObject('user');
+            if (user && user.authToken) {
+                $http.defaults.headers.common['auth-token'] = user.authToken;
+            } else {
+                $http.defaults.headers.common['auth-token'] = null;
             }
-        };
-    }]);
-
-    app.config(['$httpProvider', function ($httpProvider) {
-        $httpProvider.interceptors.push('httpRequestInterceptor');
+        });
     }]);
 })();
