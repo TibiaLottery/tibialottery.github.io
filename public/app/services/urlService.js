@@ -5,7 +5,18 @@
         var self = this;
 
         self.account = {
-            info: 'https://xmxuxh5tdg.execute-api.us-west-2.amazonaws.com/dev/account-info'
+            GET: {
+                info: 'https://xmxuxh5tdg.execute-api.us-west-2.amazonaws.com/dev/account-info'
+            },
+            POST: {
+                login: 'https://xmxuxh5tdg.execute-api.us-west-2.amazonaws.com/dev/account-login'
+            }
+        };
+
+        self.lottery = {
+            GET: {
+                byAccount: 'https://xmxuxh5tdg.execute-api.us-west-2.amazonaws.com/dev/lottery-get-by-account'
+            }
         };
     }
 })();

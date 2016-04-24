@@ -4,9 +4,9 @@
 	angular.module('tibialotteryApp')
 		.controller('LoginController', loginController);
 
-	loginController.$inject = ['$scope', '$http', '$sce', '$cookies', '$state', 'AccountService'];
+	loginController.$inject = ['$scope', '$http', '$sce', '$cookies', '$state', 'AccountService', 'UrlService'];
 
-	function loginController($scope, $http, $sce, $cookies, $state, AccountService) {
+	function loginController($scope, $http, $sce, $cookies, $state, AccountService, UrlService) {
 		var self = this;
 
 		self.submitting = false;
@@ -31,10 +31,11 @@
 			}
 
 			$http({
-				url: '/api/v1/account/login',
+				url: UrlService.account.POST.login,
 				method: 'POST',
 				data: $scope.user
 			}).then(function(response){
+				console.log(response.data);
 				self.submitting = false;
 				response = response.data;
 				if(response.success === false){
@@ -43,13 +44,16 @@
 				}
 
 				self.error = '';
-				if(response.rememberMe){
-					var expirationDate = new Date();
+				var expirationDate = new Date();
+				if(response.user.rememberMe){
 					expirationDate.setFullYear(expirationDate.getFullYear()+2);
-					$cookies.put("rememberMe", response.rememberMe, {
-						expires: expirationDate
-					});
+				} else {
+					expirationDate.setTime(expirationDate.getTime() + (1000 * 60 * 60 * 2)); // 2 hours
 				}
+
+				$cookies.putObject("user", response.user, {
+					expires: expirationDate
+				});
 
 				$state.go("account");
 			});

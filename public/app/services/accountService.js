@@ -13,7 +13,7 @@
 
     function getCurrentUserInformation(callback) {
       $http({
-        url: UrlService.account.info,
+        url: UrlService.account.GET.info,
         method: 'GET'
       }).then(callback);
     }

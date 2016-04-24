@@ -1,9 +1,9 @@
 (function () {
   angular.module('tibialotteryApp').service('LotteryService', LotteryService);
 
-  LotteryService.$inject = ['$http'];
+  LotteryService.$inject = ['$http', 'UrlService'];
 
-  function LotteryService($http) {
+  function LotteryService($http, UrlService) {
     var self = this;
 
     self.getLotteriesForCurrentUser = getLotteriesForCurrentUser;
@@ -11,7 +11,7 @@
 
     function getLotteriesForCurrentUser(callback) {
       $http({
-        url: '/api/v1/lottery/getByAccount',
+        url: UrlService.lottery.GET.byAccount,
         method: 'GET'
       }).then(callback);
     }
