@@ -19,10 +19,10 @@
     }
 
     function logout(callback) {
-      $cookies.remove("rememberMe");
+      $cookies.remove("user");
       $http({
-        url: '/api/v1/account/logout',
-        method: 'GET'
+        url: UrlService.account.POST.logout,
+        method: 'POST'
       }).then(callback);
     }
 

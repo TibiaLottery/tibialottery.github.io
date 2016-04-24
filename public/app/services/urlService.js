@@ -9,7 +9,8 @@
                 info: 'https://xmxuxh5tdg.execute-api.us-west-2.amazonaws.com/dev/account-info'
             },
             POST: {
-                login: 'https://xmxuxh5tdg.execute-api.us-west-2.amazonaws.com/dev/account-login'
+                login: 'https://xmxuxh5tdg.execute-api.us-west-2.amazonaws.com/dev/account-login',
+                logout: 'https://xmxuxh5tdg.execute-api.us-west-2.amazonaws.com/dev/account-logout'
             }
         };
 
