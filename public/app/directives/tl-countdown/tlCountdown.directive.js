@@ -11,7 +11,7 @@
       scope: {
         date: '='
       },
-      templateUrl: '/app/directives/tl-countdown/tl-countdown.html'
+      templateUrl: '/build/app/directives/tl-countdown/tl-countdown.html'
     };
 
     return directive;

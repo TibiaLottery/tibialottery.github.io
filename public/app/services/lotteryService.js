@@ -18,7 +18,7 @@
 
     function getLotteryById(id) {
       return $http({
-        url: '/api/v1/lottery/getById?id=' + id,
+        url: UrlService.lottery.GET.byID + id,
         method: 'GET'
       });
     }

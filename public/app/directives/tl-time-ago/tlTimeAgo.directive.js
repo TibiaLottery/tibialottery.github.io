@@ -12,7 +12,7 @@
         date: '=',
         reverse: '='
       },
-      templateUrl: '/app/directives/tl-time-ago/tl-time-ago.html'
+      templateUrl: '/build/app/directives/tl-time-ago/tl-time-ago.html'
     };
 
     return directive;
