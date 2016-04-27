@@ -1,21 +1,22 @@
 (function () {
 	'use strict';
 
-	var app = angular.module('tibialotteryApp').controller('IndexController', indexController);
+	angular.module('tibialotteryApp').controller('IndexController', indexController);
 
-	indexController.$inject = ['$mdToast'];
+	indexController.$inject = ['$sce', 'NewsService'];
 
-	function indexController($mdToast) {
+	function indexController($sce, NewsService) {
 		var self = this;
+		self.news = [];
 
-		self.toast = function toast(){
-			$mdToast.show(
-				$mdToast.simple()
-					.content('Would you like some toast?')
-					.position("top right")
-					.action('OK')
-					.hideDelay(3000)
-			);
-		};
+		NewsService.getRecent(function(response) {
+			self.news = _.map(response.data.news, function(news) {
+				console.log(news.Contents);
+				news.Contents = $sce.trustAsHtml(news.Contents);
+				return news;
+			});
+
+			console.log(self.news);
+		});
 	}
 })();

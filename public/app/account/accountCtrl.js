@@ -4,9 +4,9 @@
 	angular.module('tibialotteryApp')
 		.controller('AccountController', AccountController);
 
-	AccountController.$inject = ['$scope', '$state', '$mdDialog', '$mdToast', 'AccountService', 'LotteryService'];
+	AccountController.$inject = ['$scope', '$state', '$mdDialog', '$mdToast', '$cookies', 'AccountService', 'LotteryService'];
 
-	function AccountController($scope, $state, $mdDialog, $mdToast, AccountService, LotteryService) {
+	function AccountController($scope, $state, $mdDialog, $mdToast, $cookies, AccountService, LotteryService) {
 		var self = this;
 
 		self.lotteriesLoading = true;
@@ -24,6 +24,7 @@
 		AccountService.getCurrentUserInformation(function (response) {
 			response = response.data;
 			if (!response.success) {
+				$cookies.remove('user');
 				$state.go('account.login');
 				return;
 			}
@@ -76,6 +77,7 @@
 						return;
 					}
 
+					$cookies.remove('user');
 					$state.go('account.login');
 				});
 			});

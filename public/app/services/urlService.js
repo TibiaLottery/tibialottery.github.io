@@ -22,5 +22,12 @@
                 byID: 'https://xmxuxh5tdg.execute-api.us-west-2.amazonaws.com/dev/lottery-get-by-id/'
             }
         };
+
+        self.news = {
+            GET: {
+                recent: 'https://xmxuxh5tdg.execute-api.us-west-2.amazonaws.com/dev/news-get-recent',
+                all: ''
+            }
+        };
     }
 })();
