@@ -41,35 +41,35 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td><a href="http://tibialottery.com/view/6494">6494</a></td>
+                        <td><a ui-sref="lotteryView({lotteryId: 6494})">6494</a></td>
                         <td>Dimas da Gama</td>
                         <td>May 6th, 2016</td>
                         <td>Honera</td>
                     </tr>
 
                     <tr>
-                        <td><a href="http://tibialottery.com/view/36383">36383</a></td>
+                        <td><a ui-sref="lotteryView({lotteryId: 36383})">36383</a></td>
                         <td>Skyzo</td>
                         <td>May 7th, 2016</td>
                         <td>Antica</td>
                     </tr>
 
                     <tr>
-                        <td><a href="http://tibialottery.com/view/46047">46047</a></td>
+                        <td><a ui-sref="lotteryView({lotteryId: 46047})">46047</a></td>
                         <td>Jevia Scorn</td>
                         <td>May 18th, 2016</td>
                         <td>Antica</td>
                     </tr>
 
                     <tr>
-                        <td><a href="http://tibialottery.com/view/28352">28352</a></td>
+                        <td><a ui-sref="lotteryView({lotteryId: 28352})">28352</a></td>
                         <td>Jevia Scorn</td>
                         <td>May 20th, 2016</td>
                         <td>Antica</td>
                     </tr>
 
                     <tr>
-                        <td><a href="http://tibialottery.com/view/54009">54009</a></td>
+                        <td><a ui-sref="lotteryView({lotteryId: 54009})">54009</a></td>
                         <td>Jevia Scorn</td>
                         <td>May 23rd, 2016</td>
                         <td>Antica</td>
@@ -96,35 +96,35 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <td><a href="http://tibialottery.com/view/26423">26423</a></td>
+                        <td><a ui-sref="lotteryView({lotteryId: 26423})">26423</a></td>
                         <td>Mike</td>
                         <td>April 26th, 2016</td>
                         <td>Server not specified</td>
                     </tr>
 
                     <tr>
-                        <td><a href="http://tibialottery.com/view/12950">12950</a></td>
+                        <td><a ui-sref="lotteryView({lotteryId: 12950})">12950</a></td>
                         <td>Texas</td>
                         <td>April 24th, 2016</td>
                         <td>Server not specified</td>
                     </tr>
 
                     <tr>
-                        <td><a href="http://tibialottery.com/view/89310">89310</a></td>
+                        <td><a ui-sref="lotteryView({lotteryId: 89310})">89310</a></td>
                         <td>Magerit</td>
                         <td>April 24th, 2016</td>
                         <td>Server not specified</td>
                     </tr>
 
                     <tr>
-                        <td><a href="http://tibialottery.com/view/37157">37157</a></td>
+                        <td><a ui-sref="lotteryView({lotteryId: 37157})">37157</a></td>
                         <td>Nykki Kaos</td>
                         <td>April 23rd, 2016</td>
                         <td>Magera</td>
                     </tr>
 
                     <tr>
-                        <td><a href="http://tibialottery.com/view/91546">91546</a></td>
+                        <td><a ui-sref="lotteryView({lotteryId: 91546})">91546</a></td>
                         <td>dd</td>
                         <td>April 20th, 2016</td>
                         <td>Server not specified</td>
@@ -137,12 +137,17 @@
 </div>
 
 <div class="row fade-in" ng-if="indexCtrl.news.length !== 0">
-    <div class="col-sm-12" ng-repeat="news in indexCtrl.news track by news.AutoInc">
+    <tl-news-entry data="news" ng-repeat="news in indexCtrl.news track by news.AutoInc"></tl-news-entry>
+</div>
+
+<div class="row fade-in" ng-if="indexCtrl.news.length === 0">
+    <div class="col-sm-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">{{news.Title}}</h3>
+                <h3 class="panel-title">Loading</h3>
             </div>
-            <div class="panel-body" ng-bind-html="news.Contents">
+            <div class="panel-body">
+                <md-progress-linear md-mode="indeterminate"></md-progress-linear>
             </div>
         </div>
     </div>
